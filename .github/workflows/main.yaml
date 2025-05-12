@@ -12,7 +12,7 @@ jobs:
 
     - name: Utiliser un secret (de manière sécurisée)
       env:
-        MON_SECRET_UTILISE_EN_INTERNE: ${{ secrets.MY_SUPER_SECRET }}
+        MON_SECRET_UTILISE_EN_INTERNE: ${{ secrets.M_SECRET }}
       run: |
         echo "Le script va utiliser le secret mais ne l'affichera PAS directement."
         if [ -n "$MON_SECRET_UTILISE_EN_INTERNE" ]; then
