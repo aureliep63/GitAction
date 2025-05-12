@@ -12,12 +12,14 @@ jobs:
 
     - name: Utiliser un secret (de manière sécurisée)
       env:
-        MON_SECRET_UTILISE_EN_INTERNE: ${{ secrets.M_SECRET }}
+        MON_SECRET_UTILISE_EN_INTERNE: ${{ secrets.MY_SUPER_SECRET }}
       run: |
         echo "Le script va utiliser le secret mais ne l'affichera PAS directement."
+        # Pour la démo, on va juste prouver qu'il est là :
         if [ -n "$MON_SECRET_UTILISE_EN_INTERNE" ]; then
           echo "Le secret est bien passé en variable d'env !"
         else
           echo "Oops, le secret n'est pas là."
           exit 1
         fi
+        # ATTENTION : NE JAMAIS FAIRE 'echo ${{ secrets.MY_SUPER_SECRET }}' pour un vrai secret en production.
